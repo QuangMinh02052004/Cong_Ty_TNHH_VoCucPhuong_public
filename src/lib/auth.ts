@@ -71,7 +71,7 @@ export const authOptions: NextAuthOptions = {
             // Add token info to session
             if (session.user) {
                 session.user.id = token.id as string;
-                session.user.role = token.role as string;
+                session.user.role = token.role;
                 session.user.phone = token.phone as string | undefined;
                 session.user.avatar = token.avatar as string | undefined;
             }
