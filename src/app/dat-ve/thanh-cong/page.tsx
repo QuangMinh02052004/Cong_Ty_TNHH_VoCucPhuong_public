@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -24,7 +24,7 @@ interface BookingData {
     };
 }
 
-export default function BookingSuccessPage() {
+function BookingSuccessContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const [bookingData, setBookingData] = useState<BookingData | null>(null);
@@ -500,5 +500,20 @@ export default function BookingSuccessPage() {
                 </div>
             </div>
         </>
+    );
+}
+
+export default function BookingSuccessPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-sky-50 to-white">
+                <div className="text-center">
+                    <div className="text-6xl mb-4 animate-bounce">🎫</div>
+                    <p className="text-gray-600">Đang tải thông tin vé...</p>
+                </div>
+            </div>
+        }>
+            <BookingSuccessContent />
+        </Suspense>
     );
 }

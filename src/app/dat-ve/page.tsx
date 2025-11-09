@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { routes } from '@/data/routes';
 
-export default function DatVePage() {
+function DatVeForm() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const { data: session } = useSession();
@@ -586,5 +586,22 @@ export default function DatVePage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function DatVePage() {
+    return (
+        <Suspense fallback={
+            <div className="py-16 bg-gradient-to-b from-sky-50 to-white">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <div className="text-5xl mb-4">🚌</div>
+                        <p className="text-gray-600">Đang tải...</p>
+                    </div>
+                </div>
+            </div>
+        }>
+            <DatVeForm />
+        </Suspense>
     );
 }
