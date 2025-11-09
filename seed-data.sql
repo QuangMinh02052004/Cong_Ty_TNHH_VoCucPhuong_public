@@ -22,6 +22,34 @@ INSERT INTO "buses" ("id", "licensePlate", "busType", "totalSeats", "status", "c
 ('bus3', '51B-11111', 'Ghế ngồi 45 chỗ', 45, 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
 ON CONFLICT ("licensePlate") DO NOTHING;
 
+-- Insert Users (Admin, Staff, User)
+INSERT INTO "users" ("id", "email", "password", "name", "phone", "role", "createdAt", "updatedAt")
+SELECT 'admin1', 'admin@vocucphuong.com', '$2b$10$44CKCMGJDX2hMFnV8rPZ5u7BO0oGwzuYYHslk4KwMr3pI02tFgBZ2', 'Quản trị viên', '02519999975', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+WHERE NOT EXISTS (SELECT 1 FROM "users" WHERE email = 'admin@vocucphuong.com');
+
+INSERT INTO "users" ("id", "email", "password", "name", "phone", "role", "createdAt", "updatedAt")
+SELECT 'staff1', 'staff@vocucphuong.com', '$2b$10$/lueWP3kbYd4sffyuH8bIuN67beyT69Arau0hNPKHNtgs95.bc1Hq', 'Nhân viên', '02519999975', 'STAFF', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+WHERE NOT EXISTS (SELECT 1 FROM "users" WHERE email = 'staff@vocucphuong.com');
+
+INSERT INTO "users" ("id", "email", "password", "name", "phone", "role", "createdAt", "updatedAt")
+SELECT 'user1', 'user@example.com', '$2b$10$R5HJ.ALalJo46FNmc1TCtOuJ/4g5j1B/Ymxiq3anoeAJD4RATWH6a', 'Nguyễn Văn A', '0987654321', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+WHERE NOT EXISTS (SELECT 1 FROM "users" WHERE email = 'user@example.com');
+
 -- ===============================================
 -- SEED COMPLETED
+-- ===============================================
+--
+-- Thông tin đăng nhập:
+--
+-- ADMIN:
+--   Email: admin@vocucphuong.com
+--   Password: admin123456
+--
+-- STAFF:
+--   Email: staff@vocucphuong.com
+--   Password: staff123456
+--
+-- USER:
+--   Email: user@example.com
+--   Password: user123456
 -- ===============================================
