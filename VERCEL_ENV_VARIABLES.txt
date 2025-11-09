@@ -1,0 +1,19 @@
+DATABASE_URL=REPLACE_WITH_VERCEL_POSTGRES_OR_NEON_URL
+
+NEXTAUTH_URL=https://cong-ty-tnhh-vo-cuc-phuong-public.vercel.app
+NEXTAUTH_SECRET=/rThlUymXSJPRG557KNVMD5JXKeQfU8q0FSjGSvo6VE=
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=lequangminh951@gmail.com
+EMAIL_PASSWORD=uxcb xosk jbzz rfpw
+EMAIL_FROM=Lê Quang Minh <lequangminh951@gmail.com>
+
+NEXT_PUBLIC_APP_URL=https://cong-ty-tnhh-vo-cuc-phuong-public.vercel.app
+NEXT_PUBLIC_COMPANY_NAME=Xe Võ Cúc Phương
+NEXT_PUBLIC_COMPANY_PHONE=02519999975
+NEXT_PUBLIC_COMPANY_EMAIL=vocucphuong0018@gmail.com
+
+BANK_ACCOUNT_NO=0908724146
+BANK_ACCOUNT_NAME=LE QUANG MINH
+BANK_CODE=970422

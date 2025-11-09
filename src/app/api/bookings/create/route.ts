@@ -33,12 +33,12 @@ export async function POST(request: NextRequest) {
         const validation = createBookingSchema.safeParse(body);
 
         if (!validation.success) {
-            console.error('❌ [API] Validation failed:', validation.error.errors);
+            console.error('❌ [API] Validation failed:', validation.error.issues);
             return NextResponse.json(
                 {
                     success: false,
                     error: 'Validation failed',
-                    details: validation.error.errors,
+                    details: validation.error.issues,
                 },
                 { status: 400 }
             );
